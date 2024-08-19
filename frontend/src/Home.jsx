@@ -3,6 +3,8 @@ import Create from './Create'
 import axios from 'axios';
 import List from '@mui/material/List';
 import CafeItem from './CafeItem';
+import Typography from '@mui/material/Typography';
+
 
 
 const Home = () => {
@@ -15,13 +17,16 @@ const Home = () => {
 
     return (
         <div>
-            <h2>Todo List</h2>
+            <Typography id="modal-modal-title" variant="h5" component="h2">
+                Cafes
+            </Typography>
             <Create />
             <List>
                 {entries.length === 0 ? <div><h2>No Entries</h2></div> : entries.map((entry, index) => (
                     <CafeItem data={entry} key={entry._id} />
                 ))}
             </List>
+
         </div>
     )
 }
