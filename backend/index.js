@@ -29,7 +29,7 @@ app.delete('/delete/:id', ((req, res) => {
 }))
 
 app.post('/add', ((req, res) => {
-    const task = req.body.name;
+    const { name } = req.body;
     EntryModel.create({
         name: name
     }).then(result => res.json(result)).catch(err => res.json(err))

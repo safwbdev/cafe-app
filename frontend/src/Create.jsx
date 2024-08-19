@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 import axios from 'axios'
 
 const Create = () => {
@@ -10,8 +12,8 @@ const Create = () => {
     }
     return (
         <>
-            <input type="text" name="" id="" placeholder='Enter Name' onChange={(e) => setEntry(e.target.value)} />
-            <button type="button" onClick={handleAdd}>Add</button>
+            <TextField id="" label="Enter name" variant="outlined" onChange={(e) => setEntry(e.target.value)} />
+            <Button variant="contained" onClick={handleAdd}>Add</Button>
         </>
     )
 }
