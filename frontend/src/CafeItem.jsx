@@ -10,8 +10,8 @@ import axios from 'axios';
 
 const CafeItem = ({ data }) => {
 
-    const handleEdit = (id) => {
-        axios.put(`${import.meta.env.VITE_APP_URL}/update/${id}`).then(result => location.reload()
+    const handleEdit = (id, value) => {
+        axios.put(`${import.meta.env.VITE_APP_URL}/updatecheck/${id}`, { done: !value }).then(result => location.reload()
         ).catch(err => console.log(err));
 
     }
@@ -36,7 +36,7 @@ const CafeItem = ({ data }) => {
                         checked={data.done}
                         tabIndex={-1}
                         disableRipple
-                        onClick={() => handleEdit(data._id)}
+                        onClick={() => handleEdit(data._id, data.done)}
                     />
                 </ListItemIcon>
                 <ListItemText primary={data.name} />
