@@ -1,19 +1,14 @@
-require("dotenv").config();
+// KEEP FOR NOW
+
 const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const MONGO_API = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@${process.env.MONGO_ADDRESS}.mongodb.net/${process.env.MONGO_DB}`;
 const EntryModel = require('./models/Entry')
 
-const app = express();
+const router = express.Router();
 
-app.use(cors());
-app.use(express.json());
 
-mongoose.connect(MONGO_API)
 
 // Get all entries 
-app.get('/get', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const entries = await EntryModel.find({});
 
@@ -24,10 +19,10 @@ app.get('/get', async (req, res) => {
         res.status(500).send({ message: error.message });
     }
 })
-
+    ;
 
 // Get entry by ID 
-app.get('/get/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     const { id } = req.params;
     try {
         const entry = await EntryModel.findById(id);
@@ -39,10 +34,10 @@ app.get('/get/:id', async (req, res) => {
         res.status(500).send({ message: error.message });
     }
 
-})
+});
 
 // Update checked entries
-app.put('/updatecheck/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
     try {
         const { id } = req.params;
 
@@ -57,10 +52,10 @@ app.put('/updatecheck/:id', async (req, res) => {
         res.status(500).send({ message: error.message });
     }
 
-})
+});
 
 // Delete an entry
-app.delete('/delete/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
         const { id } = req.params;
         const entry = await EntryModel.findByIdAndDelete({ _id: id });
@@ -73,10 +68,10 @@ app.delete('/delete/:id', async (req, res) => {
         console.log(error.message);
         res.status(500).send({ message: error.message });
     }
-})
+});
 
 // Create a new entry 
-app.post('/add', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const { name } = req.body;
         const newEntry = await EntryModel.create({
@@ -89,10 +84,6 @@ app.post('/add', async (req, res) => {
         res.status(500).send({ message: error.message });
 
     }
-})
+});
 
-app.listen(3001, () => {
-    console.log('Server is running');
-
-
-})
+export default router;

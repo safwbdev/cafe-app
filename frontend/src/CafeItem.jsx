@@ -7,6 +7,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const CafeItem = ({ data }) => {
 
@@ -39,9 +40,11 @@ const CafeItem = ({ data }) => {
                         onClick={() => handleEdit(data._id, data.done)}
                     />
                 </ListItemIcon>
-                <ListItemText primary={data.name} />
+                <Link to={`/cafe/${data._id}`}>
+                    <ListItemText primary={data.name} />
+                </Link>
             </ListItemButton>
-        </ListItem>
+        </ListItem >
     )
 }
 
