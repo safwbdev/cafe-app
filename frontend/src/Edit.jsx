@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import axios from 'axios'
-import AddIcon from '@mui/icons-material/Add';
+import EditIcon from '@mui/icons-material/Edit';
 import {
     Button,
     Box,
@@ -10,7 +9,7 @@ import {
     FormGroup,
     Modal,
     TextField,
-    Typography,
+    Typography
 } from '@mui/material';
 
 const style = {
@@ -24,29 +23,27 @@ const style = {
     boxShadow: 24,
     p: 4,
 };
-const Create = () => {
-    const [name, setName] = useState('');
-    const [location, setLocation] = useState('');
-    const [map, setMap] = useState('');
-    const [menu, setMenu] = useState('');
-    const [type, setType] = useState(0);
-    const [vegetarian, setVegetarian] = useState(false);
-    const [halal, setHalal] = useState(false);
+const Edit = ({ data, update }) => {
+    const [name, setName] = useState(data.name);
+    const [location, setLocation] = useState(data.location);
+    const [map, setMap] = useState(data.map);
+    const [menu, setMenu] = useState(data.menu);
+    const [type, setType] = useState(data.type);
+    const [vegetarian, setVegetarian] = useState(data.vegetarian);
+    const [halal, setHalal] = useState(data.halal);
 
 
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    const handleAdd = () => {
-        axios.post(`${import.meta.env.VITE_APP_URL}/add`, { name: name, map: map, menu: menu, type: type, vegetarian: vegetarian, halal: halal })
-            .then(result => location.reload())
-            .catch(err => console.log(err))
+    const handleSave = (id) => {
+        update(id, { name: name, map: map, menu: menu, type: type, vegetarian: vegetarian, halal: halal })
     }
     return (
         <>
             <Fab color="primary" aria-label="add" onClick={handleOpen} style={{ position: 'absolute', bottom: '5em', right: '5em' }}>
-                <AddIcon />
+                <EditIcon />
             </Fab>
             <Modal
                 open={open}
@@ -56,22 +53,22 @@ const Create = () => {
             >
                 <Box sx={style}>
                     <Typography id="modal-modal-title" variant="h6" component="h2">
-                        New Entry
+                        Edit Entry
                     </Typography>
-                    <TextField id="" label="Name" variant="outlined" onChange={(e) => setName(e.target.value)} />
-                    <TextField id="" label="Location" variant="outlined" onChange={(e) => setLocation(e.target.value)} />
-                    <TextField id="" label="Map" variant="outlined" onChange={(e) => setMap(e.target.value)} />
-                    <TextField id="" label="Menu" variant="outlined" onChange={(e) => setMenu(e.target.value)} />
+                    <TextField id="" label="Name" variant="outlined" value={name} onChange={(e) => setName(e.target.value)} />
+                    <TextField id="" label="Location" variant="outlined" value={location} onChange={(e) => setLocation(e.target.value)} />
+                    <TextField id="" label="Map" variant="outlined" value={map} onChange={(e) => setMap(e.target.value)} />
+                    <TextField id="" label="Menu" variant="outlined" value={menu} onChange={(e) => setMenu(e.target.value)} />
 
                     <FormGroup>
                         <FormControlLabel control={<Checkbox checked={vegetarian} />} label="Vegetarian Friendly" onClick={() => setVegetarian(!vegetarian)} />
                         <FormControlLabel control={<Checkbox checked={halal} />} label="Halal" onClick={() => setHalal(!halal)} />
                     </FormGroup>
-                    <Button variant="contained" onClick={handleAdd}>Add</Button>
+                    <Button variant="contained" onClick={() => handleSave(data._id)}>Save</Button>
                 </Box>
             </Modal>
         </>
     )
 }
 
-export default Create
+export default Edit

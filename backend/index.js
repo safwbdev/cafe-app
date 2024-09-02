@@ -59,6 +59,25 @@ app.put('/updatecheck/:id', async (req, res) => {
 
 })
 
+// Update checked entries
+app.put('/updateentry/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const entry = await EntryModel.findByIdAndUpdate(id, req.body)
+
+        if (!entry) {
+            console.log('PASS');
+            return res.status(404).json({ message: 'Entry not found' })
+        }
+        return res.status(200).json({ message: 'Entry updated successfully' })
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).send({ message: error.message });
+    }
+
+})
+
 // Delete an entry
 app.delete('/delete/:id', async (req, res) => {
     try {

@@ -1,15 +1,17 @@
 import React from 'react'
-import ListItem from '@mui/material/ListItem';
-import IconButton from '@mui/material/IconButton';
-import DeleteIcon from '@mui/icons-material/Delete';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Checkbox from '@mui/material/Checkbox';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import DeleteIcon from '@mui/icons-material/Delete';
+import {
+    Checkbox,
+    IconButton,
+    ListItem,
+    ListItemButton,
+    ListItemIcon,
+    ListItemText,
+} from '@mui/material/Checkbox';
 
-const CafeItem = ({ data }) => {
+const EntryItem = ({ data }) => {
 
     const handleEdit = (id, value) => {
         axios.put(`${import.meta.env.VITE_APP_URL}/updatecheck/${id}`, { done: !value }).then(result => location.reload()
@@ -40,7 +42,7 @@ const CafeItem = ({ data }) => {
                         onClick={() => handleEdit(data._id, data.done)}
                     />
                 </ListItemIcon>
-                <Link to={`/cafe/${data._id}`}>
+                <Link to={`/entry/${data._id}`}>
                     <ListItemText primary={data.name} />
                 </Link>
             </ListItemButton>
@@ -48,4 +50,4 @@ const CafeItem = ({ data }) => {
     )
 }
 
-export default CafeItem
+export default EntryItem
