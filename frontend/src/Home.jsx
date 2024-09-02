@@ -1,16 +1,16 @@
 import React from 'react'
 import Create from './Create'
-import Typography from '@mui/material/Typography';
 import EntryList from './List/EntryList';
+import { Mainheader } from './components/Typography';
 
 
 
 const Home = () => {
     return (
         <div>
-            <Typography id="modal-modal-title" variant="h5" component="h2">
+            <Mainheader>
                 Cafes
-            </Typography>
+            </Mainheader>
             <Create />
             <EntryList />
         </div>

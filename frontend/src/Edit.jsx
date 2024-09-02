@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import EditIcon from '@mui/icons-material/Edit';
+import { Subheader } from './components/Typography';
 import {
     Button,
     Box,
@@ -8,8 +9,7 @@ import {
     FormControlLabel,
     FormGroup,
     Modal,
-    TextField,
-    Typography
+    TextField
 } from '@mui/material';
 
 const style = {
@@ -38,7 +38,7 @@ const Edit = ({ data, update }) => {
     const handleClose = () => setOpen(false);
 
     const handleSave = (id) => {
-        update(id, { name: name, map: map, menu: menu, type: type, vegetarian: vegetarian, halal: halal })
+        update(id, { name: name, location: location, map: map, menu: menu, type: type, vegetarian: vegetarian, halal: halal })
     }
     return (
         <>
@@ -52,14 +52,13 @@ const Edit = ({ data, update }) => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                    <Subheader>
                         Edit Entry
-                    </Typography>
+                    </Subheader>
                     <TextField id="" label="Name" variant="outlined" value={name} onChange={(e) => setName(e.target.value)} />
                     <TextField id="" label="Location" variant="outlined" value={location} onChange={(e) => setLocation(e.target.value)} />
                     <TextField id="" label="Map" variant="outlined" value={map} onChange={(e) => setMap(e.target.value)} />
                     <TextField id="" label="Menu" variant="outlined" value={menu} onChange={(e) => setMenu(e.target.value)} />
-
                     <FormGroup>
                         <FormControlLabel control={<Checkbox checked={vegetarian} />} label="Vegetarian Friendly" onClick={() => setVegetarian(!vegetarian)} />
                         <FormControlLabel control={<Checkbox checked={halal} />} label="Halal" onClick={() => setHalal(!halal)} />

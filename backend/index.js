@@ -59,7 +59,7 @@ app.put('/updatecheck/:id', async (req, res) => {
 
 })
 
-// Update checked entries
+// Update entry
 app.put('/updateentry/:id', async (req, res) => {
     try {
         const { id } = req.params;
@@ -67,7 +67,6 @@ app.put('/updateentry/:id', async (req, res) => {
         const entry = await EntryModel.findByIdAndUpdate(id, req.body)
 
         if (!entry) {
-            console.log('PASS');
             return res.status(404).json({ message: 'Entry not found' })
         }
         return res.status(200).json({ message: 'Entry updated successfully' })
