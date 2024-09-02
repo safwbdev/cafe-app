@@ -9,7 +9,7 @@ import {
     ListItemButton,
     ListItemIcon,
     ListItemText,
-} from '@mui/material/Checkbox';
+} from '@mui/material';
 
 const EntryItem = ({ data }) => {
 
