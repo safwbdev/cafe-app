@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import DeleteIcon from '@mui/icons-material/Delete';
+import CheckIcon from '@mui/icons-material/Check';
 import {
     Checkbox,
     IconButton,
@@ -9,7 +10,11 @@ import {
     ListItemButton,
     ListItemIcon,
     ListItemText,
+    Avatar,
+    CardHeader,
+
 } from '@mui/material';
+import Card from '@mui/material/Card';
 
 const EntryItem = ({ data }) => {
 
@@ -26,13 +31,36 @@ const EntryItem = ({ data }) => {
     }
     return (
         <ListItem
-            secondaryAction={
-                <IconButton edge="end" aria-label="delete" onClick={() => handleDelete(data._id)}>
-                    <DeleteIcon />
-                </IconButton>
-            }
+        // secondaryAction={
+        //     <IconButton edge="end" aria-label="delete" onClick={() => handleDelete(data._id)}>
+        //         <DeleteIcon />
+        //     </IconButton>
+        // }
         >
-            <ListItemButton role={undefined} dense>
+            <Card sx={{ width: '100%' }} >
+                <CardHeader
+                    avatar={
+                        <Avatar
+                            onClick={() => handleEdit(data._id, data.done)}
+                            sx={{ bgcolor: data.done ? 'green' : '' }}
+                            aria-label="recipe">
+                            {data.done ? (<CheckIcon />) : <div />}
+                        </Avatar>
+                    }
+                    action={
+                        <IconButton aria-label="settings" onClick={() => handleDelete(data._id)}>
+                            <DeleteIcon />
+                        </IconButton>
+                    }
+                    title={
+                        <Link to={`/entry/${data._id}`}
+                        // style={{ border: '1px solid red' }}
+                        >
+                            {data.name}
+                        </Link>}
+                />
+            </Card>
+            {/* <ListItemButton role={undefined} dense>
                 <ListItemIcon>
                     <Checkbox
                         edge="start"
@@ -45,7 +73,7 @@ const EntryItem = ({ data }) => {
                 <Link to={`/entry/${data._id}`}>
                     <ListItemText primary={data.name} />
                 </Link>
-            </ListItemButton>
+            </ListItemButton> */}
         </ListItem >
     )
 }
