@@ -2,8 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import Edit from '../Edit';
-import { Text, Header } from '../components/Typography';
-import { Item } from '../components/Item';
+import { Text, Header, Item } from '../components';
 import { Box, Grid } from '@mui/material';
 import Map from './Map';
 import HalalStatus from './HalalStatus';

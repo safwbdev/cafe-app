@@ -1,7 +1,7 @@
 import React from 'react'
 import Create from './Create'
 import EntryList from './List/EntryList';
-import { Mainheader } from './components/Typography';
+import { Mainheader } from './components';
 
 
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import EditIcon from '@mui/icons-material/Edit';
-import { Subheader } from './components/Typography';
+import { Subheader } from './components';
 import {
     Button,
     Box,

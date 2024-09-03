@@ -1,5 +1,5 @@
 import React from 'react'
-import { Item } from '../components/Item';
+import { Item } from '../components';
 
 const Map = ({ mapdata }) => {
     const resizeFrame = (data) => data.replace(`width="600"`, `width="100%"`)

@@ -1,7 +1,6 @@
 import React from 'react'
 import SpaIcon from '@mui/icons-material/Spa';
-import { Text } from '../components/Typography';
-import { Item } from '../components/Item';
+import { Text, Item } from '../components/Typography';
 
 const VegStatus = ({ status }) => {
     return (

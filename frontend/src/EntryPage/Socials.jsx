@@ -1,6 +1,5 @@
 import React from 'react'
-import { Text } from '../components/Typography'
-import { Item } from '../components/Item'
+import { Text, Item } from '../components'
 
 const Socials = () => {
     return (

@@ -1,6 +1,5 @@
 import React from 'react'
-import { Item } from '../components/Item'
-import { Text } from '../components/Typography'
+import { Item, Text } from '../components'
 
 const Menu = ({ menuData }) => {
     return (

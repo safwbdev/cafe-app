@@ -1,8 +1,7 @@
 import React from 'react'
 import MosqueIcon from '@mui/icons-material/Mosque';
 import SavingsIcon from '@mui/icons-material/Savings';
-import { Text } from '../components/Typography';
-import { Item } from '../components/Item';
+import { Text, Item } from '../components';
 
 const HalalStatus = ({ status }) => {
     return (
