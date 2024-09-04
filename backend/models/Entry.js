@@ -33,7 +33,10 @@ const TodoSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    // socials: [],
+    socials: {
+        type: [],
+        default: []
+    }
     // openHours: []
 });
 
