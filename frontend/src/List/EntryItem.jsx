@@ -30,13 +30,7 @@ const EntryItem = ({ data }) => {
 
     }
     return (
-        <ListItem
-        // secondaryAction={
-        //     <IconButton edge="end" aria-label="delete" onClick={() => handleDelete(data._id)}>
-        //         <DeleteIcon />
-        //     </IconButton>
-        // }
-        >
+        <ListItem>
             <Card sx={{ width: '100%' }} >
                 <CardHeader
                     avatar={
@@ -52,28 +46,9 @@ const EntryItem = ({ data }) => {
                             <DeleteIcon />
                         </IconButton>
                     }
-                    title={
-                        <Link to={`/entry/${data._id}`}
-                        // style={{ border: '1px solid red' }}
-                        >
-                            {data.name}
-                        </Link>}
+                    title={<Link to={`/entry/${data._id}`}>{data.name}</Link>}
                 />
             </Card>
-            {/* <ListItemButton role={undefined} dense>
-                <ListItemIcon>
-                    <Checkbox
-                        edge="start"
-                        checked={data.done}
-                        tabIndex={-1}
-                        disableRipple
-                        onClick={() => handleEdit(data._id, data.done)}
-                    />
-                </ListItemIcon>
-                <Link to={`/entry/${data._id}`}>
-                    <ListItemText primary={data.name} />
-                </Link>
-            </ListItemButton> */}
         </ListItem >
     )
 }

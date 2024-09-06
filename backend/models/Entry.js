@@ -9,10 +9,6 @@ const TodoSchema = new mongoose.Schema({
         type: String,
         default: "NA"
     },
-    location: {
-        type: String,
-        default: "NA"
-    },
     map: {
         type: String,
         default: "NA"

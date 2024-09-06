@@ -32,7 +32,6 @@ const Form = ({ data, update }) => {
     const isEdit = data !== undefined;
 
     const [name, setName] = useState(isEdit ? data.name : '');
-    const [location, setLocation] = useState(isEdit ? data.location : '');
     const [map, setMap] = useState(isEdit ? data.map : '');
     const [menu, setMenu] = useState(isEdit ? data.menu : '');
     const [socials, setSocials] = useState(isEdit ? data.socials : ['']);
@@ -46,7 +45,7 @@ const Form = ({ data, update }) => {
     const handleClose = () => setOpen(false);
 
     const handleSave = (id) => {
-        update(id, { name: name, location: location, map: map, menu: menu, type: type, vegetarian: vegetarian, halal: halal, socials: socials })
+        update(id, { name: name, map: map, menu: menu, type: type, vegetarian: vegetarian, halal: halal, socials: socials })
     }
 
     const handleCreate = () => {
@@ -90,7 +89,6 @@ const Form = ({ data, update }) => {
                         autoComplete="off"
                     >
                         <TextField id="name" label="Name" variant="outlined" value={name} onChange={(e) => setName(e.target.value)} />
-                        <TextField id="location" label="Location" variant="outlined" value={location} onChange={(e) => setLocation(e.target.value)} />
                         <TextField id="map" label="Map" variant="outlined" value={map} onChange={(e) => setMap(e.target.value)} />
                         <TextField id="menu" label="Menu" variant="outlined" value={menu} onChange={(e) => setMenu(e.target.value)} />
                         <FormGroup>
