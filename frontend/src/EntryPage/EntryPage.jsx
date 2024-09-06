@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import Edit from '../Edit';
+import Form from '../Form';
 import { Text, Header, Item } from '../components';
 import { Box, Grid } from '@mui/material';
 import Map from './Map';
@@ -48,7 +48,7 @@ const EntryPage = () => {
                     <VegStatus status={entry.vegetarian} />
                 </Grid>
                 <Grid item md={6} xs={12}>
-                    <Socials />
+                    <Socials data={entry.socials} />
                 </Grid>
                 <Grid item md={6} xs={12}>
                     <Menu menuData={entry.menu} />
@@ -57,7 +57,7 @@ const EntryPage = () => {
                     {entry.map ? (<Map mapdata={entry.map} />) : (<Text>Location Not available</Text>)}
                 </Grid>
             </Grid>
-            <Edit data={entry} update={update} />
+            <Form data={entry} update={update} />
         </Box>
     )
 }

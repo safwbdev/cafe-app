@@ -1,5 +1,5 @@
 import React from 'react'
-import Create from './Create'
+import Form from './Form'
 import EntryList from './List/EntryList';
 import { Mainheader } from './components';
 
@@ -11,7 +11,7 @@ const Home = () => {
             <Mainheader>
                 Cafes
             </Mainheader>
-            <Create />
+            <Form />
             <EntryList />
         </div>
     )
