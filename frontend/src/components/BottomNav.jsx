@@ -2,7 +2,7 @@ import React from 'react'
 // routing
 import { Link } from 'react-router-dom';
 // components
-import { Box, BottomNavigation, BottomNavigationAction } from '@mui/material/Box';
+import { Box, BottomNavigation, BottomNavigationAction } from '@mui/material';
 // logos
 import HomeIcon from '@mui/icons-material/Home';
 import FavoriteIcon from '@mui/icons-material/Favorite';

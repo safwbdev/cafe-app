@@ -4,9 +4,14 @@ import { Mainheader } from './components';
 
 const Favorites = () => {
     return (
-        <div>
+        <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '90vh'
+        }}>
             <Mainheader>
-                Cafes
+                Favorites (WIP)
             </Mainheader>
         </div>
     )
