@@ -21,11 +21,14 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 400,
+    width: '90%',
+    height: '100vh',
     bgcolor: 'background.paper',
-    border: '2px solid #000',
     boxShadow: 24,
     p: 4,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center'
 };
 const Form = ({ data, update }) => {
 
@@ -46,6 +49,18 @@ const Form = ({ data, update }) => {
 
     const handleSave = (id) => {
         update(id, { name: name, map: map, menu: menu, type: type, vegetarian: vegetarian, halal: halal, socials: socials })
+    }
+
+    const handleCancel = () => {
+        setName(isEdit ? data.name : '');
+        setMap(isEdit ? data.map : '');
+        setMenu(isEdit ? data.menu : '');
+        setSocials(isEdit ? data.socials : ['']);
+        setType(isEdit ? data.type : '');
+        setVegetarian(isEdit ? data.vegetarian : false);
+        setHalal(isEdit ? data.halal : false);
+        setOpen(false);
+
     }
 
     const handleCreate = () => {
@@ -80,7 +95,7 @@ const Form = ({ data, update }) => {
             >
                 <Box sx={style}>
                     <Subheader>
-                        {isEdit ? 'Edit Entry' : 'New Enttry'}
+                        {isEdit ? 'Edit Entry' : 'New Entry'}
                     </Subheader>
                     <Stack
                         component="form"
@@ -110,12 +125,13 @@ const Form = ({ data, update }) => {
                             </div>
 
                         ))}
-                        <Button variant="contained" onClick={addSocial}>Add</Button>
+                        <Button variant="contained" onClick={addSocial}>Add Social</Button>
                         <Button variant="contained" onClick={() => {
                             isEdit ?
                                 handleSave(data._id)
                                 : handleCreate()
                         }}>Save</Button>
+                        <Button variant="contained" onClick={handleCancel}>Cancel</Button>
                     </Stack>
                 </Box>
             </Modal>

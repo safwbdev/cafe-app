@@ -5,6 +5,22 @@ import EntryPage from './EntryPage/EntryPage'
 
 
 function App() {
+  /**
+   * ====
+   * TODO
+   * ====
+   * - bottom navigation
+   * - jwt
+   * - login page
+   * - user profiles
+   * - favorites
+   * - redux/conext
+   * 
+   * ====
+   * DONE
+   * ====
+   * - Update Form
+   */
 
   return (
     <Routes>
