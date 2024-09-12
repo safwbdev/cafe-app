@@ -1,7 +1,15 @@
+// routing
 import { Route, Routes } from 'react-router-dom'
-import './App.css'
-import Home from './Home'
+// context 
+import { MainProvider } from './context/MainProvider'
+// components
+import BottomNav from './components/BottomNav'
+// pages
 import EntryPage from './EntryPage/EntryPage'
+import Favorites from './Favorites'
+import Home from './Home'
+// css
+import './App.css'
 
 
 function App() {
@@ -9,24 +17,30 @@ function App() {
    * ====
    * TODO
    * ====
-   * - bottom navigation
    * - jwt
    * - login page
    * - user profiles
    * - favorites
-   * - redux/conext
    * 
    * ====
    * DONE
    * ====
+   * - bottom navigation
+   * - redux/conext
    * - Update Form
    */
 
   return (
-    <Routes>
-      <Route exact path='/' element={<Home />} />
-      <Route exact path='/entry/:id' element={<EntryPage />} />
-    </Routes>
+    <>
+      <MainProvider>
+        <Routes>
+          <Route exact path='/' element={<Home />} />
+          <Route exact path='/favorites' element={<Favorites />} />
+          <Route exact path='/entry/:id' element={<EntryPage />} />
+        </Routes>
+      </MainProvider>
+      <BottomNav />
+    </>
   )
 }
 
