@@ -1,17 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios';
+import React from 'react'
 import List from '@mui/material/List';
 import EntryItem from './EntryItem';
+import { useMycontext } from '../context/MainProvider';
 
 
 
 const EntryList = () => {
-    const [entries, setEntries] = useState([]);
-
-    useEffect(() => {
-        axios.get(`${import.meta.env.VITE_APP_URL}/get`).then(result => setEntries(result.data)
-        ).catch(err => console.log(err));
-    }, [])
+    const { entries } = useMycontext()
 
     return (
         <div>

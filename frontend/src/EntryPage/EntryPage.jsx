@@ -10,6 +10,7 @@ import VegStatus from './VegStatus';
 import TriedStatus from './TriedStatus';
 import Socials from './Socials';
 import Menu from './Menu';
+import FavoriteStatus from './FavoriteStatus';
 
 const EntryPage = () => {
     const [entry, setEntry] = useState([]);
@@ -21,7 +22,7 @@ const EntryPage = () => {
             .catch(err => console.log(err))
     }
 
-    console.log(entry);
+    // console.log(entry);
 
 
 
@@ -39,13 +40,16 @@ const EntryPage = () => {
                         <Header>{entry.name}</Header>
                     </Item>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={6}>
                     <TriedStatus status={entry.done} />
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={6}>
+                    <FavoriteStatus id={entry._id} />
+                </Grid>
+                <Grid item xs={6}>
                     <HalalStatus status={entry.halal} />
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={6}>
                     <VegStatus status={entry.vegetarian} />
                 </Grid>
                 <Grid item md={6} xs={12}>

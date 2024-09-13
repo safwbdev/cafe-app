@@ -42,7 +42,6 @@ const Form = ({ data, update }) => {
     const [vegetarian, setVegetarian] = useState(data ? data.vegetarian : false);
     const [halal, setHalal] = useState(isEdit ? data.halal : false);
 
-
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -60,7 +59,6 @@ const Form = ({ data, update }) => {
         setVegetarian(isEdit ? data.vegetarian : false);
         setHalal(isEdit ? data.halal : false);
         setOpen(false);
-
     }
 
     const handleCreate = () => {

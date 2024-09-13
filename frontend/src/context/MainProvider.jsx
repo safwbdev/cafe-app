@@ -1,12 +1,32 @@
-import { createContext, useContext, useMemo, useState } from "react";
+import axios from "axios";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 const MainContext = createContext(undefined)
 
 const MainProvider = ({ children }) => {
     const [favorites, setFavorites] = useState([])
+    const [entries, setEntries] = useState([]);
+    const [favoriteEntries, setFavoriteEntries] = useState([]);
 
+    useEffect(() => {
+        axios.get(`${import.meta.env.VITE_APP_URL}/get`).then(result => setEntries(result.data)
+        ).catch(err => console.log(err));
+    }, []);
 
-    const values = useMemo(() => ({ favorites, setFavorites }), [favorites, setFavorites])
+    const values = useMemo(() => ({
+        favorites,
+        setFavorites,
+        entries,
+        setEntries,
+        favoriteEntries,
+        setFavoriteEntries
+    }), [
+        favorites,
+        setFavorites,
+        entries,
+        setEntries,
+        favoriteEntries,
+        setFavoriteEntries])
 
     return (
         <MainContext.Provider value={values} >

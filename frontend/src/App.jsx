@@ -20,11 +20,13 @@ function App() {
    * - jwt
    * - login page
    * - user profiles
-   * - favorites
+   * - fix scrolling bug
+   * - fix bottom nav bug when scrolling
    * 
    * ====
    * DONE
    * ====
+   * - favorites
    * - bottom navigation
    * - redux/conext
    * - Update Form
