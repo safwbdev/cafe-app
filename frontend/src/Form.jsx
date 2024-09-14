@@ -82,14 +82,19 @@ const Form = ({ data, update }) => {
 
     return (
         <>
-            <Fab color="primary" aria-label="add" onClick={handleOpen} style={{ position: 'absolute', bottom: '5em', right: '5em' }}>
+            <Fab
+                aria-label="add"
+                className='openFormButton'
+                color="primary"
+                onClick={handleOpen}
+            >
                 {isEdit ? (<EditIcon />) : (<AddIcon />)}
             </Fab>
             <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
+                aria-labelledby="modal-modal-title"
+                onClose={handleClose}
+                open={open}
             >
                 <Box sx={style}>
                     <Subheader>
@@ -101,35 +106,81 @@ const Form = ({ data, update }) => {
                         noValidate
                         autoComplete="off"
                     >
-                        <TextField id="name" label="Name" variant="outlined" value={name} onChange={(e) => setName(e.target.value)} />
-                        <TextField id="map" label="Map" variant="outlined" value={map} onChange={(e) => setMap(e.target.value)} />
-                        <TextField id="menu" label="Menu" variant="outlined" value={menu} onChange={(e) => setMenu(e.target.value)} />
+                        <TextField
+                            id="name"
+                            label="Name"
+                            variant="outlined"
+                            value={name}
+                            onChange={(e) =>
+                                setName(e.target.value)}
+                        />
+                        <TextField
+                            id="map"
+                            label="Map"
+                            variant="outlined"
+                            value={map}
+                            onChange={(e) =>
+                                setMap(e.target.value)}
+                        />
+                        <TextField
+                            id="menu"
+                            label="Menu"
+                            variant="outlined"
+                            value={menu}
+                            onChange={(e) =>
+                                setMenu(e.target.value)}
+                        />
                         <FormGroup>
-                            <FormControlLabel control={<Checkbox checked={vegetarian} />} label="Vegetarian Friendly" onClick={() => setVegetarian(!vegetarian)} />
-                            <FormControlLabel control={<Checkbox checked={halal} />} label="Halal" onClick={() => setHalal(!halal)} />
+                            <FormControlLabel
+                                control={<Checkbox checked={vegetarian} />}
+                                label="Vegetarian Friendly"
+                                onClick={() => setVegetarian(!vegetarian)}
+                            />
+                            <FormControlLabel
+                                control={<Checkbox checked={halal} />}
+                                label="Halal"
+                                onClick={() => setHalal(!halal)}
+                            />
                         </FormGroup>
                         <Text>Socials</Text>
                         {socials && socials.map((social, sIndex) => (
-                            <div style={{ display: 'flex' }} key={sIndex}>
-                                <TextField id={`socialInput${sIndex + 1}`} label={`Link ${sIndex + 1}`} variant="outlined" value={social}
-                                    style={{ width: '100%' }}
+                            <div className='socialInput' key={sIndex}>
+                                <TextField
+                                    id={`socialInput${sIndex + 1}`}
+                                    label={`Link ${sIndex + 1}`}
                                     onChange={e => handleSocial(sIndex, e)}
+                                    value={social}
+                                    variant="outlined"
                                 />
                                 <Button
+                                    onClick={() => deleteSocial(sIndex)}
                                     sx={{ bgcolor: 'red' }}
                                     variant="contained"
-                                    onClick={() => deleteSocial(sIndex)}
-                                ><CloseIcon /></Button>
+                                >
+                                    <CloseIcon />
+                                </Button>
                             </div>
 
                         ))}
-                        <Button variant="contained" onClick={addSocial}>Add Social</Button>
-                        <Button variant="contained" onClick={() => {
-                            isEdit ?
-                                handleSave(data._id)
-                                : handleCreate()
-                        }}>Save</Button>
-                        <Button variant="contained" onClick={handleCancel}>Cancel</Button>
+                        <Button
+                            variant="contained"
+                            onClick={addSocial}>
+                            Add Social
+                        </Button>
+                        <Button
+                            variant="contained"
+                            onClick={() => {
+                                isEdit ?
+                                    handleSave(data._id)
+                                    : handleCreate()
+                            }}>
+                            Save
+                        </Button>
+                        <Button
+                            variant="contained"
+                            onClick={handleCancel}>
+                            Cancel
+                        </Button>
                     </Stack>
                 </Box>
             </Modal>

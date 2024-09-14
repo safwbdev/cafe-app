@@ -23,7 +23,7 @@ const FavoriteStatus = ({ id }) => {
 
     return (
         <Item>
-            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '.5em' }}>
+            <div className='detailBox'>
                 <Avatar sx={{ bgcolor: favoriteStatus ? 'red' : '' }} onClick={() => toggleFavorites()}>
                     <FavoriteIcon />
                 </Avatar>

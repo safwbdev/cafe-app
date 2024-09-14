@@ -6,7 +6,7 @@ import { Avatar } from '@mui/material';
 const VegStatus = ({ status }) => {
     return (
         <Item>
-            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '.5em' }}>
+            <div className='detailBox'>
                 <Avatar sx={{ bgcolor: status ? 'green' : '' }}>
                     <SpaIcon />
                 </Avatar>

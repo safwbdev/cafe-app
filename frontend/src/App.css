@@ -66,3 +66,40 @@ body {
   height: 1em;
   width: 1em;
 }
+
+.listMessage {
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.openFormButton {
+  position: absolute !important;
+  bottom: 5em;
+  right: 5em;
+}
+
+.bottomNav {
+  background: lightGrey !important;
+}
+
+.detailBox {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5em;
+}
+
+.infoBox {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.socialInput {
+  display: flex;
+}
+
+.socialInput .MuiTextField-root {
+  width: 100%;
+}

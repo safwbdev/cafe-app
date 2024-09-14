@@ -2,9 +2,7 @@ import React, { useEffect } from 'react'
 import List from '@mui/material/List';
 import EntryItem from './EntryItem';
 import { useMycontext } from '../context/MainProvider';
-import { Subheader, Text } from '../components';
-
-
+import { Subheader } from '../components';
 
 const FavoriteList = () => {
     const { favorites, entries, favoriteEntries, setFavoriteEntries } = useMycontext();
@@ -17,9 +15,7 @@ const FavoriteList = () => {
     return (
         <div>
             <List>
-                {favoriteEntries.length === 0 ? <div style={{
-                    height: '50vh', display: 'flex', alignItems: 'center', justifyContent: 'center'
-                }}>
+                {favoriteEntries.length === 0 ? <div className='listMessage'>
                     <Subheader>
                         You have not added any favorites
                     </Subheader>

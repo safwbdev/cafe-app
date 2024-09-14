@@ -9,7 +9,7 @@ const Menu = ({ menuData }) => {
     return (
         <Item >
             {menuData ? (
-                <Link to={menuData} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} target='_blank'>
+                <Link to={menuData} className='infoBox' target='_blank'>
                     <Avatar sx={{ marginRight: 2 }}>
                         <MenuBookIcon />
                     </Avatar>
@@ -18,7 +18,7 @@ const Menu = ({ menuData }) => {
                     </Text>
                 </Link>)
                 : (
-                    <span style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} target='_blank'>
+                    <span className='infoBox'>
                         <Avatar sx={{ marginRight: 2 }}>
                             <TextureIcon />
                         </Avatar>

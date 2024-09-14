@@ -7,7 +7,7 @@ import { Avatar } from '@mui/material';
 const HalalStatus = ({ status }) => {
     return (
         <Item>
-            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '.5em' }}>
+            <div className='detailBox'>
                 <Avatar sx={{ bgcolor: status ? 'green' : '' }}>
                     {status ? (<MosqueIcon />) : (<SavingsIcon />)}
                 </Avatar>

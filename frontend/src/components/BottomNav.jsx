@@ -11,13 +11,19 @@ const BottomNav = () => {
     return (
         <Box sx={{ width: '100%', bottom: 0, position: 'absolute' }}>
             <BottomNavigation
+                className='bottomNav'
                 showLabels
-                style={{
-                    background: 'lightGrey'
-                }}
             >
-                <BottomNavigationAction label="Home" icon={<HomeIcon />} component={Link} to='/' />
-                <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} component={Link} to='/favorites' />
+                <BottomNavigationAction
+                    component={Link}
+                    icon={<HomeIcon />}
+                    label="Home"
+                    to='/' />
+                <BottomNavigationAction
+                    component={Link}
+                    icon={<FavoriteIcon />}
+                    label="Favorites"
+                    to='/favorites' />
             </BottomNavigation>
         </Box >
     )
