@@ -9,7 +9,7 @@ const MainProvider = ({ children }) => {
     const [favoriteEntries, setFavoriteEntries] = useState([]);
 
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_APP_URL}/get`).then(result => setEntries(result.data)
+        axios.get(`${import.meta.env.VITE_APP_URL}/api/entries`).then(result => setEntries(result.data)
         ).catch(err => console.log(err));
     }, []);
 

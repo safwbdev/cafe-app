@@ -62,7 +62,7 @@ const Form = ({ data, update }) => {
     }
 
     const handleCreate = () => {
-        axios.post(`${import.meta.env.VITE_APP_URL}/add`, { name: name, map: map, menu: menu, type: type, vegetarian: vegetarian, halal: halal })
+        axios.post(`${import.meta.env.VITE_APP_URL}/api/entries`, { name: name, map: map, menu: menu, type: type, vegetarian: vegetarian, halal: halal })
             .then(result => location.reload())
             .catch(err => console.log(err))
     }

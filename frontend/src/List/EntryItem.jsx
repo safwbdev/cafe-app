@@ -17,7 +17,7 @@ const EntryItem = ({ data, isFavorite }) => {
     const { setFavorites, favorites } = useMycontext()
 
     const handleEdit = (id, value) => {
-        axios.put(`${import.meta.env.VITE_APP_URL}/updatecheck/${id}`, { done: !value }).then(result => location.reload()
+        axios.put(`${import.meta.env.VITE_APP_URL}/api/entries/${id}`, { done: !value }).then(result => location.reload()
         ).catch(err => console.log(err));
 
     }
@@ -27,7 +27,7 @@ const EntryItem = ({ data, isFavorite }) => {
             setFavorites(favorites.filter((a) => a !== id));
             // location.reload(); // use this when ready
         } else {
-            axios.delete(`${import.meta.env.VITE_APP_URL}/delete/${id}`).then(result => location.reload()
+            axios.delete(`${import.meta.env.VITE_APP_URL}/api/entries/${id}`).then(result => location.reload()
             ).catch(err => console.log(err));
         }
 

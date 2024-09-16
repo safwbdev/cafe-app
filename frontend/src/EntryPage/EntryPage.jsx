@@ -17,7 +17,7 @@ const EntryPage = () => {
     const { id } = useParams()
 
     const update = (id, data) => {
-        axios.put(`${import.meta.env.VITE_APP_URL}/updateentry/${id}`, data)
+        axios.put(`${import.meta.env.VITE_APP_URL}/api/entries/${id}`, data)
             .then(result => location.reload())
             .catch(err => console.log(err))
     }
@@ -27,7 +27,7 @@ const EntryPage = () => {
 
 
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_APP_URL}/get/${id}`).then(result => setEntry(result.data)
+        axios.get(`${import.meta.env.VITE_APP_URL}/api/entries/${id}`).then(result => setEntry(result.data)
         ).catch(err => console.log(err));
     }, []);
 
