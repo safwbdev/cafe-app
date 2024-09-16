@@ -1,8 +1,7 @@
 require("dotenv").config();
 const express = require('express');
-const mongoose = require('mongoose');
 const cors = require('cors');
-const MONGO_API = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@${process.env.MONGO_ADDRESS}.mongodb.net/${process.env.MONGO_DB}`;
+const connectDB = require('./config/db');
 const EntryModel = require('./models/Entry')
 
 const app = express();
@@ -10,7 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect(MONGO_API)
+connectDB();
 
 // Get all entries 
 app.get('/get', async (req, res) => {
